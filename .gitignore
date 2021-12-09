@@ -1,7 +1,7 @@
 [Ll]ibrary/
 [Tt]emp/
 [Oo]bj/
-[Bb]uild/
+#[Bb]uild/ Commenting for WebGL build
 [Bb]uilds/
 Assets/AssetStoreTools*
 
