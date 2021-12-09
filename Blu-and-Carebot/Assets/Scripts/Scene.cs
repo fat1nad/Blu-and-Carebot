@@ -1,18 +1,9 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿// Author: Fatima Nadeem / Croft
+
 using UnityEngine;
 
-public class Scene : MonoBehaviour
+public class Scene: MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    public Dialogue[] dialogues;
+    public Animator sceneBlackOutAnim;
 }

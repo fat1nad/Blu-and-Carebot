@@ -11,40 +11,57 @@ public class DialogueManager : MonoBehaviour
  */
 
 {
+    public SceneManager sM;
     public Image characterImage;
     public Text dialogueText;
     public Animator dialogueBoxAnimator;
     public GameObject instruction;
 
-    private bool dialogueRunning;
-    private string characterName;
-    private Queue<string> sentences; // A queue that holds a dialogue's
+    bool dialoguesRunning;
+    string characterName;
+    Queue<Dialogue> dialogues; // A queue that holds all dialogues of a
+                                       // scene
+    Queue<string> sentences; // A queue that holds a dialogue's
                                      // individual sentences
-    private Coroutine currentTypeSentence; // the current sentence typing
+    Coroutine currentTypeSentence; // the current sentence typing
                                            // coroutine
 
     void Start()
     {
+        dialogues = new Queue<Dialogue>();
         sentences = new Queue<string>();
-        dialogueRunning = false;
+        dialoguesRunning = false;
     }
 
     void Update()
     {
-        if (Input.GetMouseButtonDown(0) && dialogueRunning) 
+        if (Input.GetMouseButtonDown(0) && dialoguesRunning) 
             // if left mouse button is pressed
         {
             DisplayNextSentence();
         }
     }
 
-    public void StartDialogue(Dialogue dialogue)
+    public void StartDialogues(Scene scene)
     {
-        dialogueRunning = true;
-        dialogueBoxAnimator.SetBool("isOpen", true); // running fading in
-                                                     // animation for dialogue
-                                                     // box and text
+        dialoguesRunning = true;
+        dialogueBoxAnimator.SetTrigger("Open"); // running fading-in animation
+                                                // for dialogue box and text
 
+        dialogues.Clear(); // emptying queue of any dialogues from the previous
+                           // scene
+
+        foreach (Dialogue dialogue in scene.dialogues)
+        {
+            dialogues.Enqueue(dialogue);
+        }
+
+        RunNextDialogue();
+    }
+
+
+    void StartDialogue(Dialogue dialogue)
+    {
         sentences.Clear(); // emptying queue of any sentences from the previous
                            // dialogue
 
@@ -59,14 +76,35 @@ public class DialogueManager : MonoBehaviour
         DisplayNextSentence();
     }
 
-    private void DisplayNextSentence()
+    void RunNextDialogue()
+    {
+        if (dialogues.Count == 0) // if no dialogues remain to run
+        {
+            EndDialogues();
+            return;
+        }
+
+        StartDialogue(dialogues.Dequeue());
+    }
+
+    void EndDialogues()
+    {
+        dialoguesRunning = false;
+
+        dialogueBoxAnimator.SetTrigger("Close"); // running fading-in animation
+                                                 // for dialogue box and text
+        instruction.SetActive(false);
+        sM.EndCurrentScene();
+    }
+
+    void DisplayNextSentence()
     /*  This function displays the next sentence in the dialogue (or the next 
      *  sentence to dequeue in sentences queue).
      */
     {
         if (sentences.Count == 0) // if no sentences remain to display
         {
-            EndDialogue();
+            RunNextDialogue();
             return;
         }
 
@@ -74,6 +112,7 @@ public class DialogueManager : MonoBehaviour
         {
             StopCoroutine(currentTypeSentence); // stopping the typing
         }
+
         currentTypeSentence = StartCoroutine(TypeSentence(sentences.Dequeue()));
         // typing next sentence
     }
@@ -92,23 +131,5 @@ public class DialogueManager : MonoBehaviour
         }
 
         instruction.SetActive(true);
-    }
-
-    private void EndDialogue()
-    {
-        dialogueBoxAnimator.SetBool("isOpen", false); // fading out dialogue
-                                                      // box and text
-        instruction.SetActive(false);
-        dialogueRunning = false;
-    }
-
-    public void HaltDialogue()
-    {
-        sentences.Clear(); // emptying queue of any sentences from the previous
-                           // dialogue
-
-        StopCoroutine(currentTypeSentence); // stopping the typing
-
-        EndDialogue();
     }
 }
