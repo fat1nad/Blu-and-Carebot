@@ -29,7 +29,7 @@ public class DialogueManager : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetMouseButtonDown(0)) // if left mouse button is pressed
+        if (Input.GetMouseButtonDown(0) || (Input.touchCount > 0)) // if left mouse button is pressed
         {
             DisplayNextSentence();
         }
