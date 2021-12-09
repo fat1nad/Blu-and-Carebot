@@ -11,10 +11,13 @@ public class DialogueManager : MonoBehaviour
  */
 
 {
-    public bool dialogueRunning;
+    public Image characterImage;
     public Text dialogueText;
-    
-    private Animator dialogueBoxAnimator;
+    public Animator dialogueBoxAnimator;
+    public GameObject instruction;
+
+    private bool dialogueRunning;
+    private string characterName;
     private Queue<string> sentences; // A queue that holds a dialogue's
                                      // individual sentences
     private Coroutine currentTypeSentence; // the current sentence typing
@@ -22,14 +25,14 @@ public class DialogueManager : MonoBehaviour
 
     void Start()
     {
-        dialogueBoxAnimator = GetComponent<Animator>();
         sentences = new Queue<string>();
         dialogueRunning = false;
     }
 
     void Update()
     {
-        if (Input.GetMouseButtonDown(0) || (Input.touchCount > 0)) // if left mouse button is pressed
+        if (Input.GetMouseButtonDown(0) && dialogueRunning) 
+            // if left mouse button is pressed
         {
             DisplayNextSentence();
         }
@@ -49,6 +52,9 @@ public class DialogueManager : MonoBehaviour
         {
             sentences.Enqueue(sentence);
         }
+
+        characterName = dialogue.characterName;
+        characterImage.sprite = dialogue.characterImage;
 
         DisplayNextSentence();
     }
@@ -75,19 +81,24 @@ public class DialogueManager : MonoBehaviour
     IEnumerator TypeSentence(string sentence)
     /*  This function displays a sentence with a typing animation.
      */
-    {
-        dialogueText.text = "";
+    {        
+        instruction.SetActive(false);
+
+        dialogueText.text = characterName + ": ";
         foreach (char letter in sentence.ToCharArray())
         {
             dialogueText.text += letter;
             yield return null; // waiting a single frame
         }
+
+        instruction.SetActive(true);
     }
 
     private void EndDialogue()
     {
         dialogueBoxAnimator.SetBool("isOpen", false); // fading out dialogue
                                                       // box and text
+        instruction.SetActive(false);
         dialogueRunning = false;
     }
 

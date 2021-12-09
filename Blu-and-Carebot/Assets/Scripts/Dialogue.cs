@@ -1,14 +1,18 @@
 ﻿// Author: Fatima Nadeem / Croft
 
 using UnityEngine;
+using UnityEngine.UI;
 
 [System.Serializable]
 
 public class Dialogue
-/*  This class holds a dialogue in the form of 2-10 sentences.
+/*  This class holds a character and its dialogue in the form of 1-10 sentences.
 */
 
 {    
-    [TextArea(2, 10)]
+    public string characterName;
+    public Sprite characterImage;
+    
+    [TextArea(1, 10)]
     public string[] sentences;
 }
