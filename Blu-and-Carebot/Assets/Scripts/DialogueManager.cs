@@ -11,24 +11,33 @@ public class DialogueManager : MonoBehaviour
  */
 
 {
-    public GameSceneManager sM;
-    public Image characterImage;
-    public Image backgroundImage;
-    public Text dialogueText;
-    public Animator dialogueBoxAnimator;
-    public GameObject instruction;
+    public static DialogueManager instance;
 
+    public Image characterImage;
+    public Text dialogueText;
+    public GameObject instruction;
+    public float timeBetweenLetters = 0.03f;
+    public float dialogueBoxFadeInTime = 0.67f; // 40/60 second
+
+    Animator dialogueSysAnimator;
     bool dialoguesRunning;
     string characterName;
-    Queue<Dialogue> dialogues; // A queue that holds all dialogues of a
-                                       // scene
-    Queue<string> sentences; // A queue that holds a dialogue's
-                                     // individual sentences
-    Coroutine currentTypeSentence; // the current sentence typing
-                                           // coroutine
+    Queue<Dialogue> dialogues; // A queue that holds all dialogues of a scene
+    Queue<string> sentences; // A queue that holds a dialogue's individual
+                             // sentences
+    Coroutine currentTypeSentence; // the current sentence typing coroutine
+
+    void Awake()
+    {
+        if (instance == null)
+        {
+            instance = this;
+        }
+    }
 
     void Start()
     {
+        dialogueSysAnimator = GetComponent<Animator>();
         dialogues = new Queue<Dialogue>();
         sentences = new Queue<string>();
         dialoguesRunning = false;
@@ -44,14 +53,20 @@ public class DialogueManager : MonoBehaviour
     }
 
     public void StartDialogues(Scene scene)
+    /*  This function starts dialogues in a scene.
+     */
     {
-        dialoguesRunning = true;
-        dialogueBoxAnimator.SetTrigger("Open"); // running fading-in animation
-                                                // for dialogue box and text
-
         dialogues.Clear(); // emptying queue of any dialogues from the previous
                            // scene
 
+        dialoguesRunning = true;
+        dialogueSysAnimator.SetTrigger("Open"); // running fade-in animation
+                                                // for dialogue box and text
+
+        StartCoroutine(TypeSentence("", false)); // Waiting for the animation
+                                                 // before starting dialogues
+
+        // Loading dialogues into dialogues queue
         foreach (Dialogue dialogue in scene.dialogues)
         {
             dialogues.Enqueue(dialogue);
@@ -60,26 +75,12 @@ public class DialogueManager : MonoBehaviour
         RunNextDialogue();
     }
 
-
-    void StartDialogue(Dialogue dialogue)
-    {
-        sentences.Clear(); // emptying queue of any sentences from the previous
-                           // dialogue
-
-        foreach (string sentence in dialogue.sentences)
-        {
-            sentences.Enqueue(sentence);
-        }
-
-        characterName = dialogue.characterName;
-        characterImage.sprite = dialogue.characterImage;
-
-        DisplayNextSentence();
-    }
-
     void RunNextDialogue()
+    /*  This function runs the next dialogue in the scene (or the next dialogue
+     *  to dequeue in dialogues queue).
+     */
     {
-        if (dialogues.Count == 0) // if no dialogues remain to run
+        if (dialogues.Count == 0) // if no dialogues remain in the queue
         {
             EndDialogues();
             return;
@@ -89,13 +90,34 @@ public class DialogueManager : MonoBehaviour
     }
 
     void EndDialogues()
+    /*  This function ends dialogues in the current scene.
+     */
     {
         dialoguesRunning = false;
 
-        dialogueBoxAnimator.SetTrigger("Close"); // running fading-in animation
+        dialogueSysAnimator.SetTrigger("Close"); // running fade-out animation
                                                  // for dialogue box and text
-        instruction.SetActive(false);
-        sM.EndCurrentScene();
+        instruction.SetActive(false); // Hiding "Click to proceed" instruction
+        
+        GameSceneManager.instance.EndCurrentScene(); // Asking scene manager
+                                                     // to end current scene
+    }
+
+    void StartDialogue(Dialogue dialogue)
+    {
+        sentences.Clear(); // emptying queue of any sentences from the previous
+                           // dialogue
+
+        // Loading sentences into sentences queue
+        foreach (string sentence in dialogue.sentences)
+        {
+            sentences.Enqueue(sentence);
+        }
+
+        characterName = dialogue.characterName;
+        characterImage.sprite = dialogue.characterImage; // Must be 340x340
+
+        DisplayNextSentence();
     }
 
     void DisplayNextSentence()
@@ -103,6 +125,8 @@ public class DialogueManager : MonoBehaviour
      *  sentence to dequeue in sentences queue).
      */
     {
+        instruction.SetActive(false);
+
         if (sentences.Count == 0) // if no sentences remain to display
         {
             RunNextDialogue();
@@ -118,19 +142,26 @@ public class DialogueManager : MonoBehaviour
         // typing next sentence
     }
 
-    IEnumerator TypeSentence(string sentence)
-    /*  This function displays a sentence with a typing animation.
+    IEnumerator TypeSentence(string sentence, bool typing = true)
+    /*  This function displays a sentence with typing animation if typing is 
+     *  true, else it waits for the dialogue box fade-in animation.
      */
-    {        
-        instruction.SetActive(false);
-
-        dialogueText.text = characterName + ": ";
-        foreach (char letter in sentence.ToCharArray())
+    {
+        if (typing)
         {
-            dialogueText.text += letter;
-            yield return null; // waiting a single frame
-        }
+            dialogueText.text = characterName + ": ";
+            foreach (char letter in sentence.ToCharArray())
+            {
+                AudioManager.instance.Play("Letter Sound");
+                dialogueText.text += letter;
+                yield return new WaitForSeconds(timeBetweenLetters);
+            }
 
-        instruction.SetActive(true);
+            instruction.SetActive(true);
+        }
+        else
+        {
+            yield return new WaitForSeconds(dialogueBoxFadeInTime);
+        }       
     }
 }

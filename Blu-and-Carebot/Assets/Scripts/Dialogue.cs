@@ -1,7 +1,6 @@
 ﻿// Author: Fatima Nadeem / Croft
 
 using UnityEngine;
-using UnityEngine.UI;
 
 [System.Serializable]
 public class Dialogue
@@ -10,7 +9,7 @@ public class Dialogue
 
 {    
     public string characterName;
-    public Sprite characterImage;
+    public Sprite characterImage; // 340x340
     
     [TextArea(1, 10)]
     public string[] sentences;

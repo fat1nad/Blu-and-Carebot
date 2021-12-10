@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Scene: MonoBehaviour
 {
+    public bool isMainMenuInstead;
+    public string musicName;
     public Dialogue[] dialogues;
-    public Animator sceneBlackOutAnim;
 }
