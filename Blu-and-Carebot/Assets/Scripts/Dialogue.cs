@@ -1,6 +1,7 @@
 ﻿// Author: Fatima Nadeem / Croft
 
 using UnityEngine;
+using UnityEngine.UI;
 
 [System.Serializable]
 public class Dialogue

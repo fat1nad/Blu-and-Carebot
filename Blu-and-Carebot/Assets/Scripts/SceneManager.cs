@@ -6,6 +6,7 @@ public class SceneManager : MonoBehaviour
 {
     public DialogueManager dM;
     public Scene[] scenes;
+    public int dialoguePause = 10;
 
     Scene currentScene;
     Queue<Scene> loadedScenes;
@@ -17,6 +18,7 @@ public class SceneManager : MonoBehaviour
         foreach(Scene scene in scenes)
         {
             loadedScenes.Enqueue(scene);
+           
         }
 
         StartNewScene();
@@ -27,6 +29,7 @@ public class SceneManager : MonoBehaviour
         if (loadedScenes.Count > 0)
         {
             currentScene = loadedScenes.Dequeue();
+            currentScene.gameObject.SetActive(true);
             StartCoroutine(SceneStartEnd(true));
         }
     }
@@ -44,7 +47,7 @@ public class SceneManager : MonoBehaviour
         {
             currentSceneBOAnim.SetTrigger("FadeIn");
 
-            yield return new WaitForSeconds(10); // hard code : (
+            yield return new WaitForSeconds(dialoguePause); // hard code : (
 
             dM.StartDialogues(currentScene);
         }
@@ -52,7 +55,7 @@ public class SceneManager : MonoBehaviour
         {
             currentSceneBOAnim.SetTrigger("FadeOut");
 
-            yield return new WaitForSeconds(10); // hard code : (
+            yield return new WaitForSeconds(dialoguePause); // hard code : (
 
             StartNewScene();
         }

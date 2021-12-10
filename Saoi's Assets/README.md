@@ -18,6 +18,7 @@ Storytime Font https://www.dafont.com/storytime-2.font
 Tentang Nanti https://www.dafont.com/tentang-nanti.font
 
 Kawaii Robot from Kawaii Robot https://www.clipartmax.com/middle/m2i8i8G6Z5A0N4b1_kawaii-robot-kawaii-robot/
+Care Bot from https://www.dreamstime.com/set-robot-head-avatar-emotions-design-template-collection-characters-chat-bot-graphic-elements-app-icons-vector-illustration-image156807637
 
 Nurse, Patient, Stern Suit made with http://elouai.com/gaia/online.php
 

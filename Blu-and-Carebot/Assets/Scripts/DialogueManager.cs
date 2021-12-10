@@ -13,6 +13,7 @@ public class DialogueManager : MonoBehaviour
 {
     public SceneManager sM;
     public Image characterImage;
+    public Image backgroundImage;
     public Text dialogueText;
     public Animator dialogueBoxAnimator;
     public GameObject instruction;
