@@ -9,6 +9,6 @@ EditorBuildSettings:
     path: Assets/Scenes/Main Menu.unity
     guid: 1998f3efe7e22384cb349f6179e91c8c
   - enabled: 1
-    path: Assets/Scenes/Adding Music.unity
-    guid: 7e638ae9641c00a45b7f91c5eef80dde
+    path: Assets/Scenes/All Dialogue.unity
+    guid: f0ea1b7228e80634abad87e271a944db
   m_configObjects: {}
