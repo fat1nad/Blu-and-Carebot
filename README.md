@@ -33,6 +33,8 @@ Art: Selen Lun, Dee, Saoi and Fatima Nadeem
 
 [Stern Suit by Wosam](https://favpng.com/png_view/silver-gray-suit-middleaged-man-suit-cartoon-formal-wear-clothing-png/hhDc65R1)
 
+[April Cruz by Saoi](http://elouai.com/gaia/online.php)
+
 
 [Scene 1 and 2 backgrounds by Konett](https://konett.itch.io/modern-visual-novel-backgrounds)
 
