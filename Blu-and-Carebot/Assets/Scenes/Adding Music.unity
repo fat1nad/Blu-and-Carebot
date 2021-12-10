@@ -147,7 +147,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 4202157}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7524e4cb5299a874ebf39bc76529fcce, type: 3}
+  m_Script: {fileID: 11500000, guid: 44ef90c7e891f3c42b1ba4a1f7857921, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   dM: {fileID: 1585015180}
@@ -163,7 +163,7 @@ MonoBehaviour:
   - {fileID: 241193626}
   - {fileID: 367445144}
   - {fileID: 1805424633}
-  dialoguePause: 10
+  dialoguePause: 2
 --- !u!4 &4202159
 Transform:
   m_ObjectHideFlags: 0

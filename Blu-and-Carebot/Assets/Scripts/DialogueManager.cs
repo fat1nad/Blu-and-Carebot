@@ -11,7 +11,7 @@ public class DialogueManager : MonoBehaviour
  */
 
 {
-    public SceneManager sM;
+    public GameSceneManager sM;
     public Image characterImage;
     public Image backgroundImage;
     public Text dialogueText;
