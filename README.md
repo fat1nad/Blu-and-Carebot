@@ -2,7 +2,7 @@
 
 A linear storybased game about the journey of Blu and Carebot from abandonment to the beach.
 
-## [Click To Play]()
+## [Click To Play](https://fat1nad.github.io/Blu-and-Carebot/)
 
 ## Attributions
 
