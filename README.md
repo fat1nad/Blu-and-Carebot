@@ -12,7 +12,7 @@ Game producer: Fatima Nadeem
 
 Game design: Fatima Nadeem
 
-Narrative design: N.C
+Narrative design: N.C Ortega
 
 Writer: Kree8
 
