@@ -18,7 +18,7 @@ Writer: Kree8
 
 Code: Fatima Nadeem and Saoi
 
-Composer/Sound designer: Gabriel
+Composer/Sound designer: Gabriel Pulcinelli
 
 Art: Selen Lun, Dee, Saoi and Fatima Nadeem
 
