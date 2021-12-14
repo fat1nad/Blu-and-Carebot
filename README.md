@@ -1,4 +1,5 @@
 # Blu and Carebot
+by CareCrows as part of Code Coven's Care Jam 2021
 
 A linear storybased game about the journey of Blu and Carebot from abandonment to the beach.
 
