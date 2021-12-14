@@ -50,7 +50,9 @@ Art: Selen Lun, Dee, Saoi and Fatima Nadeem
 
 [Scene 8 and 9 (modified) by rennis05](https://www.deviantart.com/rennis05/art/Lake-Background-898638103)
 
-[Scene 11 background by KongVideo](https://www.shutterstock.com/video/clip-1011394703-sunset-beach-summer-sale-theme-animated)
+[Scene 10 background by KongVideo](https://www.shutterstock.com/video/clip-1011394703-sunset-beach-summer-sale-theme-animated)
+
+[Scene 11 background by pikisuperstar](https://www.freepik.com/free-vector/summer-landscape-background-zoom_9146946.htm#page=1&query=beach%20sun&position=19&from_view=search)
 
 ## Software Versions
 
