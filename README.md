@@ -42,9 +42,9 @@ Art: Selen Lun, Dee, Saoi and Fatima Nadeem
 
 [Scene 4 background by edermunizz](https://edermunizz.itch.io/pixel-art-forest)
 
-[Scene 5 background (modified) by brgfx](https://www.freepik.com/free-vector/isolated-cabin-wood_8974259.htm)
+[Scene 5 background (modified) by macrovector](https://www.freepik.com/free-vector/flat-pets-shop-colorful-template-with-facade-store-building-pets-linear-icons-illustration_12858783.htm)
 
-[Scene 6 background by Odd1 Apps](https://apkpure.com/escape-game-wooden-house/air.odd1apps.EscapeGameWoodenHouse)
+[Scene 6 background (modified) by macrovector](https://www.freepik.com/free-vector/cat-shelter-isometric_6371208.htm)
 
 [Scene 7 background by Natis76](https://www.dreamstime.com/stock-illustration-tropical-beach-background-vector-illustration-image63474393)
 
@@ -52,7 +52,7 @@ Art: Selen Lun, Dee, Saoi and Fatima Nadeem
 
 [Scene 10 background by KongVideo](https://www.shutterstock.com/video/clip-1011394703-sunset-beach-summer-sale-theme-animated)
 
-[Scene 11 background by pikisuperstar](https://www.freepik.com/free-vector/summer-landscape-background-zoom_9146946.htm#page=1&query=beach%20sun&position=19&from_view=search)
+[Scene 11 background by pikisuperstar](https://www.freepik.com/free-vector/summer-landscape-background-zoom_9146946.htm)
 
 ## Software Versions
 
