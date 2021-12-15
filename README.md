@@ -11,9 +11,9 @@ A linear storybased game about the journey of Blu and Carebot from abandonment t
 
 Game producer: Fatima Nadeem
 
-Game design: Fatima Nadeem
+Game designer: Fatima Nadeem
 
-Narrative design: N.C Ortega
+Narrative designer: N.C Ortega
 
 Writer: Kree8
 
