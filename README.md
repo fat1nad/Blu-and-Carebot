@@ -1,5 +1,5 @@
 # Blu and Carebot
-by CareCrows as part of Code Coven's Care Jam 2021
+by CareCrows as part of [Code Coven's Care Jam 2021](https://itch.io/jam/care-jam-2021)
 
 A linear storybased game about the journey of Blu and Carebot from abandonment to the beach.
 
@@ -59,3 +59,6 @@ Art: Selen Lun, Dee, Saoi and Fatima Nadeem
 
     Unity 2019.4.19f1 (LTS)
     Visual Studio 2019
+
+## Some good news!!
+Out of possibly 24 entries, Blu and Carebot has made it to the 12 games now available as part of the [final Care Jam 2021 public collection](https://itch.io/jam/care-jam-2021/entries)! It also got a special shoutout for showing great potential!
