@@ -1,7 +1,7 @@
 # Blu and Carebot
 by CareCrows as part of [Code Coven's Care Jam 2021](https://itch.io/jam/care-jam-2021)
 
-A linear storybased game about the journey of Blu and Carebot from abandonment to the beach.
+A storybased game about the journey of Blu and Carebot from abandonment to the beach.
 
 ## [Click To Play](https://fat1nad.github.io/Blu-and-Carebot/)
 
